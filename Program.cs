@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using PokemonReviewApp;
 using PokemonReviewApp.Data;
+using PokemonReviewApp.Interfaces;
+using PokemonReviewApp.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,10 @@ builder.Services.AddControllers();
 
 //seed data
 builder.Services.AddTransient<Seed>();
+//add mappper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// add services
+builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
