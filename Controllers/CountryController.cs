@@ -36,7 +36,7 @@ namespace PokemonReviewApp.Controllers
         [HttpGet("{countryId}")]
         [ProducesResponseType(200, Type = typeof(Country))]
         [ProducesResponseType(400)]
-        public IActionResult GetCategory(int countryId)
+        public IActionResult GetCountry(int countryId)
         {
             if (!_countryRepository.CountryExists(countryId))
             {
